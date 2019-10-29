@@ -1,0 +1,134 @@
+@import "./scss/fonts.scss";
+@import "./scss/colors.scss";
+
+// Required
+@import "node_modules/bootstrap/scss/functions";
+@import "node_modules/bootstrap/scss/variables";
+@import "node_modules/bootstrap/scss/mixins";
+
+// Optional
+@import "node_modules/bootstrap/scss/reboot";
+@import "node_modules/bootstrap/scss/type";
+@import "node_modules/bootstrap/scss/images";
+@import "node_modules/bootstrap/scss/code";
+@import "node_modules/bootstrap/scss/grid";
+
+body {
+  font-family: "Roboto", sans-serif;
+}
+
+.app {
+  background: #30629a;
+}
+
+.geekboard {
+  background: #faf9f7;
+  border-radius: 5px;
+  overflow: hidden;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.geekboard__tabs {
+  flex: 0 1 100%;
+  display: flex;
+  flex-wrap: wrap;
+  @include media-breakpoint-up(lg) {
+    flex: 0 1 60%;
+  }
+}
+
+.geekboard__tabs__btn {
+  width: 68px;
+}
+.geekboard__tabs__content {
+  flex: 1;
+}
+
+.geekboard__daily-load {
+  flex: 0 1 100%;
+  background: #edecea;
+  padding: 1.75rem 2rem;
+  @include media-breakpoint-up(lg) {
+    flex: 0 1 40%;
+  }
+}
+
+.tabs__btn__item {
+  height: 64px;
+  text-align: center;
+  background: $tabs__btnColor;
+  cursor: pointer;
+  transition: all 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+  border-bottom: 1px solid #78a5d3;
+
+  &:last-child {
+    border-bottom: none;
+  }
+
+  &:hover {
+    background: rgba($tabs__btnColor, 0.5);
+  }
+
+  &.active {
+    background: transparent;
+    border-bottom: none;
+  }
+
+  span {
+    font-size: 36px;
+    line-height: 64px;
+  }
+}
+
+.geekboard__tabs__content {
+  padding: 1.75rem 2rem;
+  position: relative;
+  .uikit-menu {
+    font-size: 36px;
+    position: absolute;
+    top: 1.75rem;
+    right: 2rem;
+    &::before {
+      color: $pinkColor;
+    }
+  }
+}
+
+.daily-load__title,
+.tab__cont__title {
+  color: #41557d;
+  font-weight: 500;
+  font-size: 26px;
+  line-height: 42px;
+}
+
+.canvas__chart {
+  max-width: 153px;
+}
+
+.canvas-wrap {
+  height: 126px;
+  overflow: hidden;
+  position: relative;
+  .icon,
+  .icon2 {
+    font-size: 40px;
+    position: absolute;
+    top: calc(50% - 20px);
+    left: calc(50% - 20px);
+    &::before {
+      color: #a6c9ed;
+    }
+  }
+  .icon2 {
+    &::before {
+      color: #a1decb;
+    }
+  }
+}
+
+.canvasjs-chart-container {
+  margin-top: -37px;
+  margin-left: -22px;
+}
