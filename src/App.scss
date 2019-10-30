@@ -315,8 +315,16 @@ button {
   flex-wrap: wrap;
 }
 
+.location__map {
+  background: url("./assets/images/pink-dots-map.svg");
+  background-size: 600px;
+  padding: 1.75rem 2rem 2rem;
+  width: 100%;
+  background-position: center;
+}
+
 .location__top {
-  padding: 1.75rem 2rem 3rem;
+  width: 100%;
 }
 
 .location__title {
@@ -332,4 +340,61 @@ button {
   &::before {
     color: #fff;
   }
+}
+
+.location__center {
+  background: #e195b2;
+  padding: 0 0 0 1.75rem;
+  display: flex;
+  width: 100%;
+  position: relative;
+  &::after {
+    position: absolute;
+    bottom: -10px;
+    left: 2rem;
+    content: "";
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 10px 10px 0 10px;
+    border-color: #e195b2 transparent transparent transparent;
+  }
+}
+
+.location__center__text {
+  flex: 1;
+  color: #fff;
+  display: inline-block;
+  vertical-align: middle;
+  margin: auto 0;
+  .icon {
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 0.33rem;
+    font-size: 32px;
+    margin-bottom: 2px;
+    &::before {
+      color: #fff;
+    }
+  }
+}
+
+.location__center__btn {
+  width: 80px;
+  text-align: center;
+  border-left: 1px solid #d282a0;
+  .icon {
+    display: inline-block;
+    margin-right: 0.33rem;
+    font-size: 36px;
+    line-height: 80px;
+    &::before {
+      color: #fff;
+    }
+  }
+}
+
+.location__bottom {
+  width: 100%;
+  background: #fff;
 }
