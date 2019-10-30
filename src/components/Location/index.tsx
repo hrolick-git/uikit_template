@@ -22,6 +22,7 @@ const Location: React.FC = () => {
       </div>
       <div className="location__bottom">
         <p className="location__bottom__text">Monkee Bananas</p>
+        <p className="location__bottom__time">3m ago</p>
       </div>
     </div>
   )
