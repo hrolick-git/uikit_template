@@ -26,8 +26,10 @@
   /* Better Font Rendering =========== */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  &::before {
+    transition: all 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+  }
 }
-
 .uikit-menu:before {
   content: "\e902";
   color: #41557d;
@@ -58,5 +60,17 @@
 }
 .uikit-flash:before {
   content: "\e901";
+  color: #41557d;
+}
+.uikit-croissant:before {
+  content: "\e908";
+  color: #41557d;
+}
+.uikit-location:before {
+  content: "\e909";
+  color: #41557d;
+}
+.uikit-mark:before {
+  content: "\e90a";
   color: #41557d;
 }

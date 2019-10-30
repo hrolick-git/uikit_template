@@ -17,12 +17,23 @@ body {
   font-family: "Roboto", sans-serif;
 }
 
+button {
+  outline: none !important;
+}
+
 .app {
   background: #30629a;
+  min-height: 100vh;
+}
+
+.portfolio__title {
+  color: $pluginsBg;
+  font-size: 36px;
+  font-weight: 300;
 }
 
 .geekboard {
-  background: #faf9f7;
+  background: $pluginsBg;
   border-radius: 5px;
   overflow: hidden;
   display: flex;
@@ -39,7 +50,12 @@ body {
 }
 
 .geekboard__tabs__btn {
-  width: 68px;
+  width: 100%;
+  display: flex;
+  @include media-breakpoint-up(lg) {
+    width: 68px;
+    display: block;
+  }
 }
 .geekboard__tabs__content {
   flex: 1;
@@ -55,19 +71,37 @@ body {
 }
 
 .tabs__btn__item {
-  height: 64px;
+  width: 25%;
+  height: 70px;
   text-align: center;
   background: $tabs__btnColor;
   cursor: pointer;
   transition: all 1s cubic-bezier(0.075, 0.82, 0.165, 1);
-  border-bottom: 1px solid #78a5d3;
+  border-right: 1px solid #78a5d3;
+  @include media-breakpoint-up(lg) {
+    border-right: none;
+    border-bottom: 1px solid #78a5d3;
+    width: 100%;
+  }
 
   &:last-child {
+    display: block;
     border-bottom: none;
   }
 
   &:hover {
-    background: rgba($tabs__btnColor, 0.5);
+    span {
+      &::before {
+        color: $pinkColor;
+      }
+    }
+    &.active {
+      span {
+        &::before {
+          color: rgb(249, 220, 133);
+        }
+      }
+    }
   }
 
   &.active {
@@ -84,27 +118,42 @@ body {
 .geekboard__tabs__content {
   padding: 1.75rem 2rem;
   position: relative;
-  .uikit-menu {
-    font-size: 36px;
-    position: absolute;
-    top: 1.75rem;
-    right: 2rem;
-    &::before {
-      color: $pinkColor;
-    }
+}
+
+.uikit-menu {
+  font-size: 32px;
+  position: absolute;
+  top: 1.75rem;
+  right: 2rem;
+  cursor: pointer;
+  &::before {
+    color: $pinkColor;
   }
 }
 
+.daily-load__percent {
+  font-size: 26px;
+  color: $pinkColor;
+  text-align: right;
+}
+
 .daily-load__title,
-.tab__cont__title {
+.tab__cont__title,
+.cruncher__title,
+.location__title {
   color: #41557d;
   font-weight: 500;
-  font-size: 26px;
+  font-size: 20px;
   line-height: 42px;
 }
 
 .canvas__chart {
   max-width: 153px;
+  min-width: 153px;
+  margin: auto auto 2rem;
+  @include media-breakpoint-up(lg) {
+    margin: 0 auto;
+  }
 }
 
 .canvas-wrap {
@@ -126,9 +175,161 @@ body {
       color: #a1decb;
     }
   }
+
+  .canvasjs-chart-container {
+    margin-top: -20px;
+    margin-left: -22px;
+  }
 }
 
-.canvasjs-chart-container {
-  margin-top: -37px;
-  margin-left: -22px;
+.canvas__chart__details {
+  width: 100%;
+  text-align: center;
+  @include media-breakpoint-up(lg) {
+    flex: 1;
+    text-align: left;
+  }
+  .details__block {
+    &:last-child {
+      margin-top: 1rem;
+    }
+  }
+  .details__block__num {
+    color: darken($pinkColor, 10);
+    font-size: 24px;
+    line-height: 24px;
+    margin: 0;
+  }
+  .details__block__about {
+    color: $darkBlue;
+    margin: 0;
+  }
+}
+
+.chart__datapoints {
+  text-align: center;
+  width: 100%;
+}
+
+.chart__datapoints__item {
+  display: inline-block;
+  .color {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-radius: 2px;
+    margin-right: 0.3rem;
+  }
+  .text {
+    font-size: 14px;
+    margin-right: 0.5rem;
+    line-height: 17px;
+    vertical-align: middle;
+  }
+}
+
+.daily-load__icon {
+  font-size: 26px;
+  line-height: 26px;
+  vertical-align: middle;
+  &::before {
+    color: $darkBlue;
+  }
+}
+
+.daily-load__num {
+  display: inline-block;
+  color: $pinkColor;
+  font-size: 20px;
+  line-height: 26px;
+  vertical-align: middle;
+  margin: 0 0.2rem;
+}
+
+.daily-load__about {
+  display: inline-block;
+  color: $darkBlue;
+  font-size: 20px;
+  line-height: 26px;
+  vertical-align: middle;
+  margin: 0;
+}
+
+.chart_three__wrap {
+  max-height: 140px;
+  overflow: hidden;
+}
+
+.cruncher {
+  background: $pluginsBg;
+  border-radius: 5px;
+  overflow: hidden;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.cruncher__title {
+  margin-bottom: 0;
+}
+
+.cruncher__top {
+  width: 100%;
+  padding: 1.75rem 2rem 1rem;
+  position: relative;
+  border-bottom: 1px solid #d5d4d0;
+}
+
+.cruncher__bottom {
+  width: 100%;
+}
+
+.cruncher__chart__wrap {
+  height: 185px;
+  overflow: hidden;
+  padding: 0 -20px;
+  & > div {
+    margin-left: -2.25rem;
+  }
+}
+
+.cruncher__chart__btn {
+  display: inline-block;
+  color: #bcbcbc;
+  background: transparent;
+  border: none;
+  font-size: 14px;
+  line-height: 26px;
+  padding: 0 0.75rem;
+  border-radius: 3px;
+  &.active {
+    color: $darkBlue;
+    background: $yellowColor;
+  }
+}
+
+.location {
+  background: #eaa1bd;
+  border-radius: 5px;
+  overflow: hidden;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.location__top {
+  padding: 1.75rem 2rem 3rem;
+}
+
+.location__title {
+  color: #fff;
+}
+
+.float-icon {
+  font-size: 32px;
+  position: absolute;
+  top: 1.75rem;
+  right: 2rem;
+  cursor: pointer;
+  &::before {
+    color: #fff;
+  }
 }

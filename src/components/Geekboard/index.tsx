@@ -3,8 +3,11 @@ import CanvasJSReact from "../../assets/plugins/canvasjs/canvasjs.react"
 const CanvasJS = CanvasJSReact.CanvasJS
 const CanvasJSChart = CanvasJSReact.CanvasJSChart
 
-CanvasJS.addColorSet("one", ["#e295b3", "#a6c9ed"])
-CanvasJS.addColorSet("two", ["#a1decb", "#f9dc85"])
+const oneColorSet = ["#e295b3", "#a6c9ed"]
+const twoColorSet = ["#a1decb", "#f9dc85"]
+
+CanvasJS.addColorSet("one", oneColorSet)
+CanvasJS.addColorSet("two", twoColorSet)
 
 const Tabs = [
   {
@@ -22,11 +25,12 @@ const Tabs = [
 ]
 
 const chartOneOptions = {
-  height: 200,
+  height: 160,
   width: 167,
   backgroundColor: "transparent",
-  interactivityEnabled: false,
+  // interactivityEnabled: false,
   colorSet: "one",
+  animationEnabled: true,
   data: [
     {
       type: "doughnut",
@@ -40,11 +44,11 @@ const chartOneOptions = {
 }
 
 const chartTwoOptions = {
-  height: 200,
+  height: 160,
   width: 167,
   backgroundColor: "transparent",
-  interactivityEnabled: false,
   colorSet: "two",
+  animationEnabled: true,
   data: [
     {
       type: "doughnut",
@@ -53,6 +57,45 @@ const chartTwoOptions = {
       innerRadius: 50,
       showInLegend: false,
       dataPoints: [{ label: "Today", y: 60 }, { label: "Max", y: 40 }]
+    }
+  ]
+}
+
+const chartThreeOptions = {
+  height: 160,
+  backgroundColor: "transparent",
+  animationEnabled: true,
+  axisY: {
+    gridThickness: 0,
+    lineThickness: 0,
+    tickThickness: 0,
+    valueFormatString: " " //space
+  },
+  axisX: {
+    gridThickness: 0,
+    lineThickness: 0,
+    tickThickness: 0,
+    valueFormatString: " " //space
+  },
+  data: [
+    {
+      type: "column",
+      color: "#a6c9ed",
+      dataPoints: [
+        { y: 50 },
+        { y: 40 },
+        { y: 30 },
+        { y: 80 },
+        { y: 20 },
+        { y: 15 },
+        { y: 60 },
+        { y: 75 },
+        { y: 35 },
+        { y: 50 },
+        { y: 40 },
+        { y: 30 },
+        { y: 55 }
+      ]
     }
   ]
 }
@@ -83,16 +126,56 @@ const Geekboard: React.FC = () => {
           <span className="uikit-menu"></span>
           <p className="tab__cont__title">Geekboard</p>
           <div className="row">
-            <div className="col-12 col-lg-6 canvas__chart">
+            <div className="col-12 col-lg-4 canvas__chart">
               <div className="canvas-wrap">
                 <span className="uikit-shit icon"></span>
                 <CanvasJSChart options={chartOneOptions} />
               </div>
+              <div className="chart__datapoints">
+                {chartOneOptions.data[0].dataPoints.map((item, i) => {
+                  return (
+                    <div className="chart__datapoints__item">
+                      <span
+                        className="color"
+                        style={{ background: oneColorSet[i] }}
+                      ></span>
+                      <span className="text" style={{ color: oneColorSet[i] }}>
+                        {item.label}
+                      </span>
+                    </div>
+                  )
+                })}
+              </div>
             </div>
-            <div className="col-12 col-lg-6 canvas__chart">
+            <div className="col-12 col-lg-4 canvas__chart">
               <div className="canvas-wrap">
                 <span className="uikit-toilet-paper icon2"></span>
                 <CanvasJSChart options={chartTwoOptions} />
+              </div>
+              <div className="chart__datapoints">
+                {chartTwoOptions.data[0].dataPoints.map((item, i) => {
+                  return (
+                    <div className="chart__datapoints__item">
+                      <span
+                        className="color"
+                        style={{ background: twoColorSet[i] }}
+                      ></span>
+                      <span className="text" style={{ color: twoColorSet[i] }}>
+                        {item.label}
+                      </span>
+                    </div>
+                  )
+                })}
+              </div>
+            </div>
+            <div className="canvas__chart__details">
+              <div className="details__block">
+                <p className="details__block__num">523</p>
+                <p className="details__block__about">Deploys today</p>
+              </div>
+              <div className="details__block">
+                <p className="details__block__num">213</p>
+                <p className="details__block__about">TP rolls spent</p>
               </div>
             </div>
           </div>
@@ -105,6 +188,18 @@ const Geekboard: React.FC = () => {
           </div>
           <div className="col-4">
             <p className="daily-load__percent">67%</p>
+          </div>
+        </div>
+        <div className="row">
+          <div className="col-12">
+            <span className="uikit-user daily-load__icon"></span>
+            <p className="daily-load__num">751</p>
+            <p className="daily-load__about">users</p>
+          </div>
+          <div className="col-12">
+            <div className="chart_three__wrap">
+              <CanvasJSChart options={chartThreeOptions} />
+            </div>
           </div>
         </div>
       </div>
