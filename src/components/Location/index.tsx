@@ -1,4 +1,5 @@
 import React from "react"
+import avatar from "../../assets/images/monkee _avatar.png"
 
 const Location: React.FC = () => {
   return (
@@ -10,9 +11,10 @@ const Location: React.FC = () => {
         </div>
       </div>
       <div className="location__center">
-        <p className="location__center__text">
-          <span className="uikit-mark icon"></span>First check in
-        </p>
+        <div className="location__center__text__wrap">
+          <span className="uikit-mark icon"></span>
+          <p className="location__center__text">First check in</p>
+        </div>
         <div className="location__center__btn">
           <span className="uikit-article icon"></span>
         </div>
@@ -21,6 +23,12 @@ const Location: React.FC = () => {
         </div>
       </div>
       <div className="location__bottom">
+        <div
+          className="location__bottom__avatar"
+          style={{
+            backgroundImage: `url('${avatar}')`
+          }}
+        ></div>
         <p className="location__bottom__text">Monkee Bananas</p>
         <p className="location__bottom__time">3m ago</p>
       </div>

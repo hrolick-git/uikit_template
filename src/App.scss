@@ -348,6 +348,7 @@ button {
   display: flex;
   width: 100%;
   position: relative;
+  z-index: 99;
   &::after {
     position: absolute;
     bottom: -10px;
@@ -361,22 +362,32 @@ button {
   }
 }
 
+.location__center__text__wrap {
+  flex: 1;
+  display: flex;
+  .icon {
+    display: inline-block;
+    vertical-align: middle;
+    width: 32px;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 0.33rem;
+    font-size: 32px;
+    margin-bottom: 2px;
+    margin: auto 0;
+    &::before {
+      color: #fff;
+    }
+  }
+}
+
 .location__center__text {
   flex: 1;
   color: #fff;
   display: inline-block;
   vertical-align: middle;
   margin: auto 0;
-  .icon {
-    display: inline-block;
-    vertical-align: middle;
-    margin-right: 0.33rem;
-    font-size: 32px;
-    margin-bottom: 2px;
-    &::before {
-      color: #fff;
-    }
-  }
+  padding-right: 0.5rem;
 }
 
 .location__center__btn {
@@ -399,14 +410,26 @@ button {
   background: #fff;
   padding: 1.25rem 2rem;
   display: flex;
+  position: relative;
 }
 .location__bottom__text {
   margin: 0;
   display: inline-block;
+  margin-left: 2.25rem;
 }
 
 .location__bottom__time {
   color: lighten($pinkColor, 10);
   margin: 0 0 0 auto;
   display: inline-block;
+}
+.location__bottom__avatar {
+  position: absolute;
+  left: 1.5rem;
+  top: 1rem;
+  width: 36px;
+  height: 36px;
+  display: inline-block;
+  border-radius: 50%;
+  background-size: cover;
 }
