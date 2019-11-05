@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900,900i&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Yantramanav:300,400&display=swap");
 
 @font-face {
   font-family: "uikit";
@@ -72,5 +73,13 @@
 }
 .uikit-mark:before {
   content: "\e90a";
+  color: #41557d;
+}
+.uikit-calendar:before {
+  content: "\e90b";
+  color: #41557d;
+}
+.uikit-cup:before {
+  content: "\e90c";
   color: #41557d;
 }

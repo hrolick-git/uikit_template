@@ -1,0 +1,164 @@
+.react-datepicker__header {
+  background: transparent;
+  border: none;
+}
+.react-datepicker__month-container {
+  background: #a0dcc9;
+}
+
+.react-datepicker__day--selected,
+.react-datepicker__day--in-selecting-range,
+.react-datepicker__day--in-range,
+.react-datepicker__month-text--selected,
+.react-datepicker__month-text--in-selecting-range,
+.react-datepicker__month-text--in-range,
+.react-datepicker__quarter-text--selected,
+.react-datepicker__quarter-text--in-selecting-range,
+.react-datepicker__quarter-text--in-range {
+  border-radius: 50%;
+  background-color: #fff;
+  color: #000;
+}
+
+.react-datepicker__day,
+.react-datepicker__month-text,
+.react-datepicker__quarter-text {
+  border: 1px solid transparent;
+  width: 38px;
+  line-height: 36px;
+  padding: 0;
+  box-sizing: border-box;
+  margin: 0.33rem;
+}
+
+.react-datepicker__day:hover,
+.react-datepicker__month-text:hover,
+.react-datepicker__quarter-text:hover {
+  border-radius: 50%;
+  background-color: transparent;
+  color: #000;
+  border: 1px solid #fff;
+}
+
+.react-datepicker__day--outside-month {
+  opacity: 0;
+}
+.timeMachine {
+  border-radius: 5px;
+  overflow: hidden;
+  display: inline-block;
+}
+.react-datepicker {
+  border: none;
+  font-family: "Roboto", sans-serif;
+  margin-bottom: -7px;
+}
+
+.react-datepicker__day--weekend {
+  color: #34826a;
+}
+
+.react-datepicker__day-names {
+  display: none;
+}
+
+.select_months {
+  color: #000;
+  background-color: transparent;
+  border: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  text-indent: 1px;
+  text-overflow: "";
+  margin-left: auto;
+  outline: none !important;
+  cursor: pointer;
+}
+
+.rd__header {
+  display: flex;
+  padding: 1.5rem 1.5rem 0;
+}
+
+.rd__title {
+  color: #41557d;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 42px;
+}
+.rd__header__dots {
+  font-size: 34px;
+  line-height: 24px;
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0 0.75rem;
+}
+.uikit-calendar {
+  cursor: pointer;
+  font-size: 36px;
+  line-height: 36px;
+  &::before {
+    color: #fff;
+  }
+}
+
+.timeMachine__bottom {
+  background: #fff;
+  padding: 0 1.5rem 0;
+  display: flex;
+}
+
+.calendar__date {
+  display: inline-block;
+  font-size: 26px;
+  font-family: "Yantramanav", sans-serif;
+}
+
+.calendar__date__suf {
+  color: #3ac096;
+  font-size: 16px;
+  vertical-align: top;
+  margin-top: 4px;
+  display: inline-block;
+  font-weight: 300;
+}
+.calendar__date__wrap {
+  width: 80px;
+  margin-top: 0.8rem;
+}
+
+.calendar__ivents__wrap {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.calendar__ivent {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #d5d4d0;
+  padding: 1rem 0;
+  &:last-child {
+    border-bottom: none;
+  }
+}
+
+.calendar__ivent__time {
+  color: #a1a1a1;
+  width: 50px;
+}
+
+.calendar__ivent__title {
+  margin-bottom: 0;
+  flex: 1;
+  width: 100%;
+}
+
+.calendar__ivent__icon {
+  width: 30px;
+  font-size: 26px;
+  &::before {
+    color: #a1decb;
+  }
+}

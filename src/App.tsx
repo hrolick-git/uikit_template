@@ -4,6 +4,7 @@ import "./App.scss"
 import Geekboard from "./components/Geekboard"
 import Cruncher from "./components/Cruncher"
 import Location from "./components/Location"
+import TimeMachine from "./components/TimeMachine"
 
 const App: React.FC = () => {
   return (
@@ -27,6 +28,11 @@ const App: React.FC = () => {
           </div>
           <div className="col-12 col-lg-5">
             <Location />
+          </div>
+        </div>
+        <div className="row mt-4">
+          <div className="col-12 col-lg-5">
+            <TimeMachine />
           </div>
         </div>
       </div>
