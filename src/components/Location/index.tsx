@@ -29,7 +29,7 @@ const Location: React.FC = () => {
             backgroundImage: `url('${avatar}')`
           }}
         ></div>
-        <p className="location__bottom__text">Monkee Bananas</p>
+        <p className="location__bottom__text">Angry Parrot</p>
         <p className="location__bottom__time">3m ago</p>
       </div>
     </div>

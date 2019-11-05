@@ -24,7 +24,7 @@ const Article: React.FC = () => {
               backgroundImage: `url('${avatar}')`
             }}
           ></div>
-          <p className="article__author__name">Monkee Bananas</p>
+          <p className="article__author__name">Angry Parrot</p>
           <p className="article__author__date">03.06.2019</p>
         </div>
       </div>
