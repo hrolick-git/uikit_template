@@ -74,6 +74,7 @@
   display: flex;
   min-height: 200px;
   background-position: center;
+  position: relative;
   @include media-breakpoint-up(lg) {
     width: 50%;
   }
@@ -121,4 +122,12 @@
 .acticle__likes__title {
   font-weight: 300;
   margin-right: 0.5rem;
+}
+
+.article__icon {
+  font-size: 32px;
+  position: absolute;
+  top: 1.75rem;
+  right: 2rem;
+  cursor: pointer;
 }

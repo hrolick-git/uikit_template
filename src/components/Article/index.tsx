@@ -35,6 +35,7 @@ const Article: React.FC = () => {
         }}
       >
         <div className="col_right__bottom">
+          <span className="uikit-article article__icon"></span>
           <div className="acticle__likes">
             <p className="acticle__likes__title">Likes</p>
             <div
