@@ -185,13 +185,16 @@ button {
 .canvas__chart__details {
   width: 100%;
   text-align: center;
+  display: flex;
   @include media-breakpoint-up(lg) {
+    display: block;
     flex: 1;
     text-align: left;
   }
   .details__block {
-    &:last-child {
-      margin-top: 1rem;
+    width: 50%;
+    @include media-breakpoint-up(lg) {
+      width: 100%;
     }
   }
   .details__block__num {
