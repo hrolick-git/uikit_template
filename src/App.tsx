@@ -13,7 +13,7 @@ const App: React.FC = () => {
         <div className="row">
           <div className="col-12 portfolio__title">
             <p>
-              Example <i>*html/scss/js*</i>
+              Example <i>*html/scss/js*</i> by Hrolick
             </p>
           </div>
         </div>
