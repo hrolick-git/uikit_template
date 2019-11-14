@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react"
+import React, { useState, useEffect, useRef } from "react"
 import CanvasJSReact from "../../assets/plugins/canvasjs/canvasjs.react"
 const CanvasJS = CanvasJSReact.CanvasJS
 const CanvasJSChart = CanvasJSReact.CanvasJSChart
@@ -38,7 +38,10 @@ const chartOneOptions = {
       startAngle: -90,
       innerRadius: 50,
       showInLegend: false,
-      dataPoints: [{ label: "Today", y: 60 }, { label: "Max", y: 40 }]
+      dataPoints: [
+        { label: "Today", y: 60 },
+        { label: "Max", y: 40 }
+      ]
     }
   ]
 }
@@ -56,7 +59,10 @@ const chartTwoOptions = {
       startAngle: -90,
       innerRadius: 50,
       showInLegend: false,
-      dataPoints: [{ label: "Today", y: 60 }, { label: "Max", y: 40 }]
+      dataPoints: [
+        { label: "Today", y: 60 },
+        { label: "Max", y: 40 }
+      ]
     }
   ]
 }
@@ -100,9 +106,30 @@ const chartThreeOptions = {
   ]
 }
 
+const randomData = () => {}
+
+interface dataPoints {
+  y: number
+}
+
 const Geekboard: React.FC = () => {
   const [activeTab, setActiveTab] = useState(Tabs[0])
-  useEffect(() => {}, [])
+  const [dataChart, setDataChart] = useState(chartThreeOptions)
+  let chartRef: any = useRef(null)
+
+  useEffect(() => {
+    setInterval(() => {
+      const newDataPoints: Array<any> = []
+      const newDataChart = dataChart
+      const dataPoints = chartThreeOptions.data[0].dataPoints
+      for (let i = 0; i < dataPoints.length; i++) {
+        newDataPoints.push({ y: Math.floor(Math.random() * 100 + 1) })
+      }
+      newDataChart.data[0].dataPoints = newDataPoints
+      setDataChart(newDataChart)
+      chartRef.current.render()
+    }, 5000)
+  }, [])
 
   return (
     <div className="geekboard">
@@ -134,7 +161,7 @@ const Geekboard: React.FC = () => {
               <div className="chart__datapoints">
                 {chartOneOptions.data[0].dataPoints.map((item, i) => {
                   return (
-                    <div className="chart__datapoints__item">
+                    <div className="chart__datapoints__item" key={i}>
                       <span
                         className="color"
                         style={{ background: oneColorSet[i] }}
@@ -155,7 +182,7 @@ const Geekboard: React.FC = () => {
               <div className="chart__datapoints">
                 {chartTwoOptions.data[0].dataPoints.map((item, i) => {
                   return (
-                    <div className="chart__datapoints__item">
+                    <div className="chart__datapoints__item" key={i}>
                       <span
                         className="color"
                         style={{ background: twoColorSet[i] }}
@@ -198,7 +225,10 @@ const Geekboard: React.FC = () => {
           </div>
           <div className="col-12">
             <div className="chart_three__wrap">
-              <CanvasJSChart options={chartThreeOptions} />
+              <CanvasJSChart
+                options={dataChart}
+                onRef={(ref: any) => (chartRef.current = ref)}
+              />
             </div>
           </div>
         </div>

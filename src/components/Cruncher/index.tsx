@@ -29,7 +29,6 @@ const Cruncher: React.FC = () => {
             const result = state.options
             result["axisX"]["viewportMaximum"] = 12
             setState({ options: result, maxView: 12 })
-            console.log("chartRef", chartRef)
             chartRef.current.render()
           }}
         >
@@ -43,7 +42,6 @@ const Cruncher: React.FC = () => {
             const result = state.options
             result["axisX"]["viewportMaximum"] = 15
             setState({ options: result, maxView: 15 })
-            console.log("chartRef", chartRef)
             chartRef.current.render()
           }}
         >
@@ -57,7 +55,6 @@ const Cruncher: React.FC = () => {
             const result = state.options
             result["axisX"]["viewportMaximum"] = 30
             setState({ options: result, maxView: 30 })
-            console.log("chartRef", chartRef)
             chartRef.current.render()
           }}
         >
